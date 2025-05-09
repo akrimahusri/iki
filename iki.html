@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hai Ikiii</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loading"></div>
+    <div class="background"></div>
+    <div class="main">
+      <div class="content">
+        <div class="btn-mulai">
+          <p class="hilang1">Klik Aku</p>
+          <p class="hilang2">Pesan selanjutnya</p>
+          <p class="hilang3">Pesan selanjutnya</p>
+          <p class="hilang4">Kirim Pesan</p>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================= -->
+    <script>
+      // Custom Disini
+      var pengirim = "Your Idol❤️";
+      var musik = "musik.mp3";
+      var ucapansatu = "Wish u all the best ikiii";
+      var ucapandua = " Semogaa impian iki semuanya bisa tercapai";
+      var ucapantiga = "Semogaa iki tetap jadi orang baik dan dikelilingi orang-orang baik jugaa";
+
+      var background = "foto.jpg";
+      var noWhatsapp = "6282267073861";
+
+      async function start() {
+        // Untuk menambah pop up ucapan tambahkan seperti format dibawah ini
+        await swalo.fire({ title: "BIRTHDAY BOOM!!!" });
+        playMusik();
+        await swalo.fire({ title: "Another year, Another level!" });
+        await swalo.fire({ title: "Ciee udah kepala dua ajaa nihh" });
+
+        // Dibawah ini jangan diedit
+        $(".loading").fadeOut("slow");
+      }
+
+      async function kirimpesan() {
+        var { value: pesanku } = await swalo.fire({ imageUrl: "https://files.dariku.my.id/mylove/cutie1.gif", title: "Tulis pesan", input: "textarea", confirmButtonText: "Kirim" });
+        klik.play();
+        if (pesanku) {
+          await swalo.fire("Kirim pesannya ke wa aku ya");
+          if (noWhatsapp > 10) location.assign("https://wa.me/" + noWhatsapp + "?text=" + pesanku);
+          else location.assign("https://wa.me/?text=" + pesanku);
+        } else {
+          await swalo.fire({ imageUrl: "https://files.dariku.my.id/mylove/cutie2.gif", confirmButtonText: "Ok", title: "Jangan dikosongin dong" });
+          klik.play();
+          kirimpesan();
+        }
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
